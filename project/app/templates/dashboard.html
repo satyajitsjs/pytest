@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <!-- Add your CSS and JavaScript links here -->
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <h2>Your Posts</h2>
+
+    {% for post in posts %}
+    <form method="post">
+    <div class="post">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <p>{{ post.description }}</p>
+      <p>
+          <input type="hidden" name='title' id='title' value='{{post.title}}'>
+          <input type="submit" name='btn' id='btn' value='Edit'> 
+          <input type='submit' name='btn' id='btn' value='Delete'> 
+      </p>
+    </div>
+    {% csrf_token %}
+  </form>
+    {% endfor %}
+
+    <h2>Create New Post</h2>
+    <a href="/create">Create</a>
+  </div>
+</body>
+</html

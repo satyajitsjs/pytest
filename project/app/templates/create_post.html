@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Post</title>
+  <!-- Add your CSS and JavaScript links here -->
+</head>
+<body>
+  <header>
+    <h1>Create Post</h1>
+  </header>
+
+  <div class="container">
+  <form method="post">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="Title"><br>
+  <textarea name="content" placeholder="Content"></textarea><br>
+  <textarea name="description" placeholder="description"></textarea><br>
+  <input type="submit" value="Create">
+</form>
+
+
+{% if output %}
+
+<h1> {{ output }} </h1>
+
+{% endif %}
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Post Detail</title>
+  Add your CSS and JavaScript links here
+</head>
+<body>
+  <header>
+    <h1>Post Detail</h1>
+  </header>
+  {% for p in posts %}
+  <div class="container">
+    <div class="post">
+      <h2>{{ p.title }}</h2>
+      <p>{{ p.content }}</p>
+      <p>{{ p.description }}</p>
+    </div>
+    </div>
+    {% endfor %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post Detail</title>
+  <!-- Add your CSS and JavaScript links here -->
+</head>
+<body>
+  <header>
+    <h1>Post Detail</h1>
+  </header>
+  <h2>Welcome, {{ user.username }}!</h2>
+  {% for p in posts %}
+  <div class="container">
+    <div class="post">
+      <h2>{{ p.title }}</h2>
+      <p>{{ p.content }}</p>
+      <p>{{ p.description }}</p>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="post_id" value="{{ p.pk }}">
+      <button type="submit" name="choice" value="like">Like</button>
+      <button type="submit" name="choice" value="dislike">Dislike</button>
+    </form>
+  </div>
+  {% endfor %}
+</body>
+</html>

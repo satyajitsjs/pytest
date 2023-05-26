@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Post</title>
+  <!-- Add your CSS and JavaScript links here -->
+</head>
+<body>
+  <header>
+    <h1>Edit Post</h1>
+  </header>
+
+  <div class="container">
+    {% for p in posts %}
+    <form method="post" action="/edit">
+      {% csrf_token %}
+      <input type="text" name="title" value="{{ p.title }}"><br>
+      <textarea name="content">{{ p.content }}</textarea><br>
+      <textarea name="description">{{ p.description }}</textarea><br>
+      <input type="submit" name="btn" value="Update">
+    </form>
+{% endfor %}
+
+
+{% if output %}
+{{output}}
+{% endif %}
+
+
+  </div>
+</body>
+</html>
